@@ -22,7 +22,7 @@ export async function GET(
   try {
     // Générer le PDF en mémoire
     const buffer = await renderToBuffer(
-      createElement(ClientPDF, { client })
+      createElement(ClientPDF as any, { client })
     )
 
     // Nom de fichier propre basé sur le nom du projet
