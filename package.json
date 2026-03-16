@@ -27,7 +27,8 @@
     "react-hot-toast": "^2",
     "@react-pdf/renderer": "^3.4",
     "react-hook-form": "^7",
-    "@hookform/resolvers": "^3"
+    "@hookform/resolvers": "^3",
+    "chart.js": "^4"
   },
   "devDependencies": {
     "typescript": "^5",
