@@ -28,6 +28,8 @@
     "@react-pdf/renderer": "^3.4"
   },
   "devDependencies": {
+    "react-hook-form": "^7",
+    "@hookform/resolvers": "^3",
     "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
