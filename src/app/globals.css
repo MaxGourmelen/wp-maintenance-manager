@@ -1,0 +1,85 @@
+/* ─── Reset & base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ─── CSS Variables — light mode ────────────────────────────────────────── */
+:root {
+  --color-background-primary:   #ffffff;
+  --color-background-secondary: #f8f7f4;
+  --color-background-tertiary:  #f1efe8;
+
+  --color-text-primary:   #2c2c2a;
+  --color-text-secondary: #73726c;
+  --color-text-tertiary:  #9c9a92;
+
+  --color-border-tertiary:  rgba(44, 44, 42, 0.12);
+  --color-border-secondary: rgba(44, 44, 42, 0.22);
+  --color-border-primary:   rgba(44, 44, 42, 0.35);
+
+  --color-background-info:    #E6F1FB;
+  --color-text-info:          #185FA5;
+  --color-border-info:        rgba(24, 95, 165, 0.35);
+
+  --color-background-danger:  #FCEBEB;
+  --color-text-danger:        #A32D2D;
+  --color-border-danger:      rgba(163, 45, 45, 0.35);
+
+  --color-background-success: #EAF3DE;
+  --color-text-success:       #3B6D11;
+  --color-border-success:     rgba(59, 109, 17, 0.35);
+
+  --color-background-warning: #FAEEDA;
+  --color-text-warning:       #854F0B;
+  --color-border-warning:     rgba(133, 79, 11, 0.35);
+
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ─── CSS Variables — dark mode ─────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary:   #1c1c1a;
+    --color-background-secondary: #141412;
+    --color-background-tertiary:  #0e0e0c;
+
+    --color-text-primary:   #e8e6de;
+    --color-text-secondary: #9c9a92;
+    --color-text-tertiary:  #6b6960;
+
+    --color-border-tertiary:  rgba(232, 230, 222, 0.10);
+    --color-border-secondary: rgba(232, 230, 222, 0.18);
+    --color-border-primary:   rgba(232, 230, 222, 0.28);
+
+    --color-background-info:    #0C447C;
+    --color-text-info:          #B5D4F4;
+    --color-background-danger:  #501313;
+    --color-text-danger:        #F7C1C1;
+    --color-background-success: #173404;
+    --color-text-success:       #C0DD97;
+    --color-background-warning: #412402;
+    --color-text-warning:       #FAC775;
+  }
+}
+
+/* ─── Scrollbar (webkit) ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-secondary); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-primary); }
+
+/* ─── Typographie globale ───────────────────────────────────────────────── */
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; }
