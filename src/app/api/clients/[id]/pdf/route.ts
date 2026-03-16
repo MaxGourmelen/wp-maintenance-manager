@@ -18,7 +18,7 @@ export async function GET(
 
   try {
     const element = createElement(ClientPDF, { client }) as any
-    const buffer = await renderToBuffer(element)
+    const buffer = Buffer.from(await renderToBuffer(element))
 
     const filename = client.nom_projet
       .toLowerCase()
