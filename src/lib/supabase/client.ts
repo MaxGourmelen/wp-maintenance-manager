@@ -5,7 +5,6 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-// ─── Helpers clients ───────────────────────────────────────────────────────
 export async function getClients() {
   const { data, error } = await supabase
     .from('clients')
@@ -25,7 +24,6 @@ export async function getClientById(id: string) {
   return data
 }
 
-// ─── Helpers dashboard ─────────────────────────────────────────────────────
 export async function getEcheancesAVenir() {
   const { data, error } = await supabase
     .from('echeances_a_venir')
@@ -50,10 +48,10 @@ export async function getDashboardStats() {
     total_clients: total ?? 0,
     mrr,
     echeances_15j: echeances?.length ?? 0,
+    cout_licences_annuel: 0,
   }
 }
 
-// ─── Import en masse ───────────────────────────────────────────────────────
 export async function importClientBatch(
   items: Array<{
     client: any
@@ -65,7 +63,6 @@ export async function importClientBatch(
 
   for (const item of items) {
     try {
-      // 1. Insérer le client
       const { data: client, error: clientError } = await supabase
         .from('clients')
         .insert(item.client)
@@ -73,7 +70,6 @@ export async function importClientBatch(
         .single()
       if (clientError) throw clientError
 
-      // 2. Insérer le site
       const { data: site, error: siteError } = await supabase
         .from('sites')
         .insert({ ...item.site, client_id: client.id })
@@ -81,7 +77,6 @@ export async function importClientBatch(
         .single()
       if (siteError) throw siteError
 
-      // 3. Insérer les plugins
       if (item.plugins.length > 0) {
         const { error: pluginsError } = await supabase
           .from('plugins')
