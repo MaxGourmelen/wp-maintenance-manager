@@ -22,7 +22,7 @@ export default async function EditClientPage({ params }: Props) {
     nbr_adresses_mail:              site?.nbr_adresses_mail ?? 0,
     cout_mensuel:                   site?.cout_mensuel ?? 0,
     date_renouvellement_prestation: site?.date_renouvellement_prestation ?? '',
-    plugins: (site?.plugins ?? []).map(p => ({
+    plugins: (site?.plugins ?? []).map((p: any) => ({
       id:                   p.id,
       nom:                  p.nom,
       cout:                 p.cout,
