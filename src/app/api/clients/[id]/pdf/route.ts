@@ -20,9 +20,10 @@ export async function GET(
   }
 
   try {
-    // Générer le PDF en mémoire
-    const buffer = await renderToBuffer(
-      createElement(ClientPDF as any, { client })
+ // Générer le PDF en mémoire
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const element = createElement(ClientPDF, { client }) as any
+    const buffer = await renderToBuffer(element)
     )
 
     // Nom de fichier propre basé sur le nom du projet
